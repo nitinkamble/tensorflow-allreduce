@@ -486,8 +486,8 @@ def train_model(session, train_batches, validation_batches, model_inputs,
 
         # Print time taken; only do so on MPI rank 0 if using MPI.
         if MPI_RANK == 0:
-            print("Elapsed: \t{:.3f} – Step: \t{:<5} \tTime: \t{:.3f}"
-                  .format(global_elapsed, step + 1, elapsed), flush=True)
+#            print("Elapsed: \t{:.3f} - Step: \t{:<5} \tTime: \t{:.3f}".format(global_elapsed, step + 1, elapsed), flush=True)
+            print("Elapsed: \t{:.3f} - Step: \t{:<5} \tTime: \t{:.3f}".format(global_elapsed, step + 1, elapsed))
 
 
 @click.command()
@@ -520,7 +520,8 @@ def main(train_data, validation_data, batch_size, max_word_length,
          embedding_size, convolution_sizes, recurrent_sizes,
          feedforward_sizes):
 
-    print("Detected GPUs: {}.".format(len(GPUS)), flush=True)
+    #print("Detected GPUs: {}.".format(len(GPUS)), flush=True)
+    print("Detected GPUs: {}.".format(len(GPUS)))
 
     # Load the vocabulary into memory. The model is automatically initialized
     # to handle the loaded vocabulary size.
